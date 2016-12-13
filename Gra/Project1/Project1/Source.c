@@ -31,6 +31,7 @@ int main(void)
 	ALLEGRO_BITMAP *fondo2 = NULL;
 	ALLEGRO_BITMAP *fondo3 = NULL;
 	ALLEGRO_BITMAP *fondo4 = NULL;
+	ALLEGRO_BITMAP *fondo5 = NULL;
 	ALLEGRO_BITMAP *cursor = NULL;
 	ALLEGRO_BITMAP *gracz = NULL;
 	ALLEGRO_BITMAP *gracz0 = NULL;
@@ -71,23 +72,25 @@ int main(void)
 
 	al_play_sample(sample, 1, 0, 1, ALLEGRO_PLAYMODE_LOOP, NULL);
 
-	fondo1 = al_load_bitmap("fondo1.bmp");
+	fondo1 = al_load_bitmap("grafiki/menu/menu.bmp");
 	al_convert_mask_to_alpha(fondo1, al_map_rgb(255, 0, 255));
-	fondo2 = al_load_bitmap("fondo2.bmp");
+	fondo2 = al_load_bitmap("grafiki/menu/menu1.bmp");
 	al_convert_mask_to_alpha(fondo2, al_map_rgb(255, 0, 255));
-	fondo3 = al_load_bitmap("fondo3.bmp");
+	fondo3 = al_load_bitmap("grafiki/menu/menu2.bmp");
 	al_convert_mask_to_alpha(fondo3, al_map_rgb(255, 0, 255));
-	fondo4 = al_load_bitmap("fondo4.bmp");
+	fondo4 = al_load_bitmap("grafiki/menu/menu3.bmp");
 	al_convert_mask_to_alpha(fondo4, al_map_rgb(255, 0, 255));
+	fondo5 = al_load_bitmap("grafiki/menu/menu4.bmp");
+	al_convert_mask_to_alpha(fondo5, al_map_rgb(255, 0, 255));
 	cursor = al_load_bitmap("cursor.bmp");
 	al_convert_mask_to_alpha(cursor, al_map_rgb(255, 0, 255));
-	gracz = al_load_bitmap("grafika\\gracze\\mojemario2.pcx");
+	gracz = al_load_bitmap("grafiki/postacie/postacprzod.png");
 	al_convert_mask_to_alpha(gracz, al_map_rgb(255, 0, 255));
-    gracz0 = al_load_bitmap("grafika\\gracze\\mojemario.pcx");
+    gracz0 = al_load_bitmap("grafiki/postacie/postacprawo.png");
 	al_convert_mask_to_alpha(gracz0, al_map_rgb(255, 0, 255));
-    gracz1 = al_load_bitmap("grafika\\gracze\\mojemario1.pcx");
+    gracz1 = al_load_bitmap("grafiki/postacie/postactyl.png");
 	al_convert_mask_to_alpha(gracz1, al_map_rgb(255, 0, 255));
-    gracz2 = al_load_bitmap("grafika\\gracze\\mojemario3.pcx");
+    gracz2 = al_load_bitmap("grafiki/postacie/postaclewo.png");
 	al_convert_mask_to_alpha(gracz2, al_map_rgb(255, 0, 255));
 	
 	mur = al_load_bitmap("grafika\\bloczki\\mur.pcx");
@@ -126,14 +129,19 @@ int main(void)
 				done = true;
 			} // robi za escape (sprawdzenie czy dziala tylko)
 			else if (ev.mouse.button & 1) {
-				if (pos_x > 393 && pos_x < 647 && pos_y> 312 && pos_y < 355) {
+				if (pos_x > 77 && pos_x < 372 && pos_y> 265 && pos_y < 318) {
 					opcja = 0;
 				}
-				else if (pos_x > 438 && pos_x < 590 && pos_y> 415 && pos_y < 469) {
+				else if (pos_x > 77 && pos_x < 412 && pos_y> 349 && pos_y < 401) {
 
 					opcja=1;
 				}
-				else if (pos_x > 435 && pos_x < 593 && pos_y> 525 && pos_y < 579) {
+				else if (pos_x > 75 && pos_x < 249 && pos_y> 431 && pos_y < 486) {
+
+					opcja = 2;
+				}
+
+				else if (pos_x > 73 && pos_x < 279 && pos_y> 514 && pos_y < 568) {
                     done = true;
 				}
 
@@ -153,19 +161,23 @@ int main(void)
 				break;
 			}
 		}
-		if (pos_x > 393 && pos_x < 647 && pos_y> 312 && pos_y < 355) {
+		if (pos_x > 77 && pos_x < 372 && pos_y> 265 && pos_y < 318) {
 
 			al_draw_bitmap(fondo2, 0, 0, 0);
 
 		}
-		else if (pos_x > 438 && pos_x < 590 && pos_y> 415 && pos_y < 469) {
+		else if (pos_x > 77 && pos_x < 412 && pos_y> 349 && pos_y < 401) {
 
 			al_draw_bitmap(fondo3, 0, 0, 0);
 			
 		}
-		else if (pos_x > 435 && pos_x < 593 && pos_y> 525 && pos_y < 579) {
+		else if (pos_x > 75 && pos_x < 249 && pos_y> 431 && pos_y < 486) {
 
 			al_draw_bitmap(fondo4, 0, 0, 0);
+		}
+		else if (pos_x > 73 && pos_x < 279 && pos_y> 514 && pos_y < 568) {
+
+			al_draw_bitmap(fondo5, 0, 0, 0);
 		}
 		else {
 
@@ -203,15 +215,51 @@ int main(void)
 				ALLEGRO_FONT *font24 = al_create_builtin_font();
 				
 
-		
+				int hp;
+				hp = 100;
 				
 
 				ALLEGRO_BITMAP *npc = NULL;
 				npc = al_load_bitmap("grafika\\gracze\\gracz1.pcx");
 
 				ALLEGRO_BITMAP *mur = NULL;
-				mur = al_load_bitmap("grafika\\bloczki\\mur.pcx");
+				mur = al_load_bitmap("grafiki/bloki/mur1.png");
 				ALLEGRO_BITMAP *pok22 = al_create_sub_bitmap(npc, 0, 64, 32, 32);
+
+				ALLEGRO_BITMAP *podloga = NULL;
+				podloga = al_load_bitmap("grafiki/bloki/podloga2.jpg");
+
+				ALLEGRO_BITMAP *dol = NULL;
+				dol = al_load_bitmap("grafiki/menu/info/dol.jpg");
+				ALLEGRO_BITMAP *bok = NULL;
+				bok = al_load_bitmap("grafiki/menu/info/bok.jpg");
+				ALLEGRO_BITMAP *zycie10 = NULL;
+				zycie10 = al_load_bitmap("grafiki/menu/info/zycie10.jpg");
+				ALLEGRO_BITMAP *zycie9 = NULL;
+				zycie9 = al_load_bitmap("grafiki/menu/info/zycie9.jpg");
+				ALLEGRO_BITMAP *zycie8 = NULL;
+				zycie8= al_load_bitmap("grafiki/menu/info/zycie8.jpg");
+				ALLEGRO_BITMAP *zycie7 = NULL;
+				zycie7 = al_load_bitmap("grafiki/menu/info/zycie7.jpg");
+				ALLEGRO_BITMAP *zycie6 = NULL;
+				zycie6 = al_load_bitmap("grafiki/menu/info/zycie6.jpg");
+				ALLEGRO_BITMAP *zycie5 = NULL;
+				zycie5 = al_load_bitmap("grafiki/menu/info/zycie5.jpg");
+				ALLEGRO_BITMAP *zycie4 = NULL;
+				zycie4 = al_load_bitmap("grafiki/menu/info/zycie4.jpg");
+				ALLEGRO_BITMAP *zycie3 = NULL;
+				zycie3 = al_load_bitmap("grafiki/menu/info/zycie3.jpg");
+				ALLEGRO_BITMAP *zycie2 = NULL;
+				zycie2 = al_load_bitmap("grafiki/menu/info/zycie2.jpg");
+				ALLEGRO_BITMAP *zycie1 = NULL;
+				zycie1 = al_load_bitmap("grafiki/menu/info/zycie1.jpg");
+				ALLEGRO_BITMAP *zycie0 = NULL;
+				zycie0 = al_load_bitmap("grafiki/menu/info/zycie0.jpg");
+
+				ALLEGRO_BITMAP *broken = NULL;
+				broken = al_load_bitmap("grafiki/items/broken.png");
+		
+				
 
 
 				bool mury[25][20];
@@ -259,7 +307,7 @@ int main(void)
 				
 			
 		
-
+				
 				int gracz_x = 96, gracz_y = 512;
 				int npc_x = 32, npc_y = 32;
 				int mur_x = 0, mur_y = 0;
@@ -364,6 +412,8 @@ int main(void)
 					}
 				
 
+
+
 					if (!kolizja)
 					{
 						for (int k = 0; k < 25; k++)
@@ -378,6 +428,24 @@ int main(void)
 
 							}
 
+						for (int i = 0; i < 25; i++)
+							for (int j = 0; j < 20; j++)
+							{
+
+								if (mury[i][j] == false) {
+
+									al_draw_bitmap(podloga, i * 32, j * 32, 0);
+
+								}
+
+							}
+
+
+						al_draw_bitmap(bok, 800, 0, 0);
+						al_draw_bitmap(dol, 0, 640, 0);
+						al_draw_bitmap(broken, 32,32 , 0);
+
+
 
 						if (gracz_x < 32)                               // warunki na ograniczenie przez okno
 							gracz_x = 32;
@@ -390,6 +458,51 @@ int main(void)
 
 
 
+						if (gracz_x >= 32 && gracz_x <= 64 && gracz_y>= 32 && gracz_y <64) {
+
+							hp--;
+						}
+
+						if (gracz_x >= 288 && gracz_x <= 320 && gracz_y >= 32 && gracz_y <=64) {
+
+							hp++;
+						}
+
+
+
+						if (hp<=100 && hp >= 90) {
+							al_draw_bitmap(zycie10, 320, 660, 0);
+						}
+						if (hp < 90 && hp >= 80) {
+							al_draw_bitmap(zycie9, 320, 660, 0);
+						}
+						if (hp < 80 && hp >= 70) {
+							al_draw_bitmap(zycie8, 320, 660, 0);
+						}
+						if (hp < 70 && hp >= 60) {
+							al_draw_bitmap(zycie7, 320, 660, 0);
+						}
+						if (hp < 60 && hp >= 50) {
+							al_draw_bitmap(zycie6, 320, 660, 0);
+						}
+						if (hp < 50 && hp >= 40 ) {
+							al_draw_bitmap(zycie5, 320, 660, 0);
+						}
+						if (hp < 40 && hp >= 30) {
+							al_draw_bitmap(zycie4, 320, 660, 0);
+						}
+						if (hp < 30 && hp >= 20) {
+							al_draw_bitmap(zycie3, 320, 660, 0);
+						}
+						if (hp < 20 && hp >= 10) {
+							al_draw_bitmap(zycie2, 320, 660, 0);
+						}
+						if (hp < 10 && hp >= 1) {
+							al_draw_bitmap(zycie1, 320, 660, 0);
+						}
+						if (hp < 0) {
+							al_draw_bitmap(zycie0, 320, 660, 0);
+						}
 
 
 
@@ -425,6 +538,8 @@ int main(void)
 
 						}
 
+					
+					
 					if (!ruch)
 					{
 
@@ -446,7 +561,7 @@ int main(void)
 						al_draw_textf
 						(
 
-							font24, al_map_rgb(0, 255, 0), al_get_display_width(display) / 2, 670, ALLEGRO_ALIGN_CENTRE, "x=%d y=%d", gracz_x, gracz_y
+							font24, al_map_rgb(0, 255, 0), al_get_display_width(display) / 2, 670, ALLEGRO_ALIGN_CENTRE, "x=%d y=%d hp=%d", gracz_x, gracz_y,hp
 						);
 
 
@@ -517,13 +632,67 @@ int main(void)
 
 		}
 				break;
+
+		case 2: {
+
+			bool opcje = false;
+			while (!opcje) {
+
+				ALLEGRO_EVENT ev;
+				al_wait_for_event(event_queue, &ev);
+
+				if (ev.type == ALLEGRO_EVENT_KEY_DOWN)
+				{
+					switch (ev.keyboard.keycode)
+					{
+
+					case ALLEGRO_KEY_ESCAPE:
+						opcje = true;
+						break;
+					}
+				}
+				if (ev.type == ALLEGRO_EVENT_MOUSE_AXES)
+				{
+					pos_x = ev.mouse.x;
+					pos_y = ev.mouse.y;
+
+				}
+				if (ev.type == ALLEGRO_EVENT_MOUSE_BUTTON_DOWN) {
+					if (ev.mouse.button & 2) {
+						opcje = true;
+					} // robi za escape (sprawdzenie czy dziala tylko)
+					else if (ev.mouse.button & 1) {
+					}
+				}
+
+
+				al_flip_display();
+			}
+
+
+		}
+				break;
+
 		}
 
 
 
 
 
+
+
+
+
+
+
+		
+
+
+
+
+
 	}
+
 
 
 	al_destroy_bitmap(fondo1);
