@@ -1,9 +1,11 @@
 ﻿  Source.c
-c:\users\przemek\documents\github\pjp2-przemys-aw--ukasiuk\gra\project1\project1\source.c(213): warning C4047: 'function': 'int' differs in levels of indirection from 'void *'
-c:\users\przemek\documents\github\pjp2-przemys-aw--ukasiuk\gra\project1\project1\source.c(213): warning C4024: 'al_draw_bitmap': different types for formal and actual parameter 4
-c:\users\przemek\documents\github\pjp2-przemys-aw--ukasiuk\gra\project1\project1\source.c(598): warning C4550: expression evaluates to a function which is missing an argument list
-c:\users\przemek\documents\github\pjp2-przemys-aw--ukasiuk\gra\project1\project1\source.c(730): warning C4087: 'al_stop_samples': declared with 'void' parameter list
-c:\users\przemek\documents\github\pjp2-przemys-aw--ukasiuk\gra\project1\project1\source.c(23): warning C4047: 'initializing': 'int' differs in levels of indirection from 'void *'
+c:\users\przemek\documents\github\pjp2-przemys-aw--ukasiuk\gra\project1\project1\source.c(214): warning C4047: 'function': 'int' differs in levels of indirection from 'void *'
+c:\users\przemek\documents\github\pjp2-przemys-aw--ukasiuk\gra\project1\project1\source.c(214): warning C4024: 'al_draw_bitmap': different types for formal and actual parameter 4
+c:\users\przemek\documents\github\pjp2-przemys-aw--ukasiuk\gra\project1\project1\source.c(632): warning C4550: expression evaluates to a function which is missing an argument list
+c:\users\przemek\documents\github\pjp2-przemys-aw--ukasiuk\gra\project1\project1\source.c(772): warning C4087: 'al_stop_samples': declared with 'void' parameter list
+c:\users\przemek\documents\github\pjp2-przemys-aw--ukasiuk\gra\project1\project1\source.c(1279): warning C4550: expression evaluates to a function which is missing an argument list
+c:\users\przemek\documents\github\pjp2-przemys-aw--ukasiuk\gra\project1\project1\source.c(1781): warning C4550: expression evaluates to a function which is missing an argument list
 c:\users\przemek\documents\github\pjp2-przemys-aw--ukasiuk\gra\project1\project1\source.c(24): warning C4047: 'initializing': 'int' differs in levels of indirection from 'void *'
+c:\users\przemek\documents\github\pjp2-przemys-aw--ukasiuk\gra\project1\project1\source.c(25): warning C4047: 'initializing': 'int' differs in levels of indirection from 'void *'
   Project1.vcxproj -> C:\Users\Przemek\Documents\GitHub\PJP2-Przemys-aw--ukasiuk\Gra\Project1\Debug\Project1.exe
   Project1.vcxproj -> C:\Users\Przemek\Documents\GitHub\PJP2-Przemys-aw--ukasiuk\Gra\Project1\Debug\Project1.pdb (Partial PDB)
