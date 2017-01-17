@@ -38,6 +38,7 @@ int main(void)
 	ALLEGRO_BITMAP *fondo5 = NULL;
 	ALLEGRO_BITMAP *cursor = NULL;
 	ALLEGRO_BITMAP *gracz = NULL;
+	ALLEGRO_BITMAP *ranking = NULL;
 	ALLEGRO_BITMAP *gracz0 = NULL;
 	ALLEGRO_BITMAP *gracz1 = NULL;
 	ALLEGRO_BITMAP *gracz2 = NULL;
@@ -47,6 +48,8 @@ int main(void)
 	ALLEGRO_BITMAP *grafikaopcja3 = NULL;
 	ALLEGRO_BITMAP *grafikainstrukcja = NULL;
 	ALLEGRO_SAMPLE *sample = NULL;
+	ALLEGRO_BITMAP *informacja1 = NULL;
+	ALLEGRO_BITMAP *informacja2 = NULL;
 
 	const int FPS = 60;
 
@@ -116,6 +119,13 @@ int main(void)
 	grafikainstrukcja = al_load_bitmap("grafiki/menu/instrukcja.bmp");
 	al_convert_mask_to_alpha(grafikainstrukcja, al_map_rgb(255, 0, 255));
 
+	informacja1 = al_load_bitmap("grafiki/menu/info1.bmp");
+	al_convert_mask_to_alpha(informacja1, al_map_rgb(255, 0, 255));
+	informacja2 = al_load_bitmap("grafiki/menu/info2.bmp");
+	al_convert_mask_to_alpha(informacja2, al_map_rgb(255, 0, 255));
+	ranking = al_load_bitmap("grafiki/menu/ranking.bmp");
+	al_convert_mask_to_alpha(ranking, al_map_rgb(255, 0, 255));
+
 
 
 	//al_hide_mouse_cursor(display); // usuwa kursor komputera
@@ -151,7 +161,7 @@ int main(void)
 			} // robi za escape (sprawdzenie czy dziala tylko)
 			else if (ev.mouse.button & 1) {
 				if (pos_x > 77 && pos_x < 372 && pos_y> 265 && pos_y < 318) {
-					opcja = 0;
+					opcja = 5;
 				}
 				else if (pos_x > 77 && pos_x < 412 && pos_y> 349 && pos_y < 401) {
 
@@ -236,12 +246,13 @@ int main(void)
 		case 0:
 
 		{
+			gra:
 
 			bool ekrangry = false;
 			while (!ekrangry) {
 
 				//Usuwa muzyke
-				al_destroy_sample(sample);
+				
 
 
 				ALLEGRO_FONT *font24 = al_create_builtin_font();
@@ -672,7 +683,7 @@ int main(void)
 
 
 							//al_draw_filled_rectangle(300, 300, 600, 600, al_map_rgb(255, 0, 0));
-							goto e;
+							goto gra1;
 							//al_flip_display;
 						}
 					}
@@ -869,10 +880,137 @@ int main(void)
 		}
 		break;
 
+		// biegne
+
+		case 5:
+		{
+			al_destroy_sample(sample);
+			bool opcje = false;
+			while (!opcje) {
+
+				ALLEGRO_EVENT ev;
+				al_wait_for_event(event_queue, &ev);
+
+				if (ev.type == ALLEGRO_EVENT_KEY_DOWN)
+				{
+					switch (ev.keyboard.keycode)
+					{
+
+					case ALLEGRO_KEY_ESCAPE:
+						opcje = true;
+						break;
+					}
+				}
+				if (ev.type == ALLEGRO_EVENT_MOUSE_AXES)
+				{
+					pos_x = ev.mouse.x;
+					pos_y = ev.mouse.y;
+
+				}
+				if (ev.type == ALLEGRO_EVENT_MOUSE_BUTTON_DOWN) {
+					if (ev.mouse.button & 2) {
+						opcje = true;
+					} // robi za escape (sprawdzenie czy dziala tylko)
+					else if (ev.mouse.button & 1) {
+
+						if (pos_x > 394 && pos_x < 593 && pos_y> 475 && pos_y < 530) {
+
+							goto gra;
+
+						}
+
+
+
+
+					}
+				}
+
+				if (pos_x > 394 && pos_x < 593 && pos_y> 475 && pos_y < 530) {
+
+					al_draw_bitmap(informacja2, 0, 0, 0);
+
+				}
+				else{
+					al_draw_bitmap(informacja1, 0, 0, 0);
+                  }
+
+
+
+
+				al_flip_display();
+			}
+
+
+		}
+		break;
+
+		// Ranking
+		case 6:
+		{
+		ranking:
+
+			
+			bool opcje = false;
+			while (!opcje) {
+
+				ALLEGRO_EVENT ev;
+				al_wait_for_event(event_queue, &ev);
+
+				if (ev.type == ALLEGRO_EVENT_KEY_DOWN)
+				{
+					switch (ev.keyboard.keycode)
+					{
+
+					case ALLEGRO_KEY_ESCAPE:
+						opcje = true;
+						break;
+					}
+				}
+				if (ev.type == ALLEGRO_EVENT_MOUSE_AXES)
+				{
+					pos_x = ev.mouse.x;
+					pos_y = ev.mouse.y;
+
+				}
+				if (ev.type == ALLEGRO_EVENT_MOUSE_BUTTON_DOWN) {
+					if (ev.mouse.button & 2) {
+						opcje = true;
+					} // robi za escape (sprawdzenie czy dziala tylko)
+					else if (ev.mouse.button & 1) {
+
+						if (pos_x > 394 && pos_x < 593 && pos_y> 475 && pos_y < 530) {
+
+							//
+
+						}
+
+
+
+
+					}
+				}
+
+				if (pos_x > 0 && pos_x < 1000 && pos_y> 0 && pos_y < 700) {
+
+					al_draw_bitmap(ranking, 0, 0, 0);
+
+				}
+				
+
+
+
+
+				al_flip_display();
+			}
+
+
+		}
+		break;
+
 
 		case 3:
 		{
-			e:
+			gra1:
 			
 
 			const int FPS = 60;
@@ -1227,7 +1365,7 @@ int main(void)
 					if (poz_kostka4 == gracz_y && gracz_x >= 488 && gracz_x <= 544) {
 						hp = hp - 15;
 					}
-					if (poz_kostka5 == gracz_x && gracz_y >= 478 && gracz_y <= 54) {
+					if (poz_kostka5 == gracz_x && gracz_y >= 478 && gracz_y <= 548) {
 						hp = hp - 15;
 					}
 					if (poz_kostka6 == gracz_y && gracz_x >= 352 && gracz_x <= 416) {
@@ -1315,11 +1453,11 @@ int main(void)
 
 
 				if (prezencik > 1 && kluczyk > 1) {
-					if (gracz_x == 384 && gracz_y == 480) {
+					if (gracz_x == 736 && gracz_y <36) {
 
 
 						//al_draw_filled_rectangle(300, 300, 600, 600, al_map_rgb(255, 0, 0));
-						goto d;
+						goto gra2;
 						//al_flip_display;
 					}
 				}
@@ -1373,7 +1511,7 @@ int main(void)
 
 case 4:
 {
-	d:
+	gra2:
 
 
 	const int FPS = 60;
@@ -1817,12 +1955,12 @@ case 4:
 
 
 		if (prezencik > 1 && kluczyk > 1) {
-			if (gracz_x == 384 && gracz_y == 480) {
+			if (gracz_x == 448 && gracz_y < 486) {
 
 
-				//al_draw_filled_rectangle(300, 300, 600, 600, al_map_rgb(255, 0, 0));
-				goto e;
-				//al_flip_display;
+			al_draw_filled_rectangle(300, 300, 600, 600, al_map_rgb(255, 0, 0));
+				
+				al_flip_display;
 			}
 		}
 
