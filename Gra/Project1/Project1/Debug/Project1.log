@@ -5,9 +5,7 @@ c:\users\przemek\documents\github\pjp2-przemys-aw--ukasiuk\gra\project1\project1
 c:\users\przemek\documents\github\pjp2-przemys-aw--ukasiuk\gra\project1\project1\source.c(783): warning C4087: 'al_stop_samples': declared with 'void' parameter list
 c:\users\przemek\documents\github\pjp2-przemys-aw--ukasiuk\gra\project1\project1\source.c(1417): warning C4550: expression evaluates to a function which is missing an argument list
 c:\users\przemek\documents\github\pjp2-przemys-aw--ukasiuk\gra\project1\project1\source.c(1919): warning C4550: expression evaluates to a function which is missing an argument list
-c:\users\przemek\documents\github\pjp2-przemys-aw--ukasiuk\gra\project1\project1\source.c(1963): warning C4550: expression evaluates to a function which is missing an argument list
 c:\users\przemek\documents\github\pjp2-przemys-aw--ukasiuk\gra\project1\project1\source.c(24): warning C4047: 'initializing': 'int' differs in levels of indirection from 'void *'
 c:\users\przemek\documents\github\pjp2-przemys-aw--ukasiuk\gra\project1\project1\source.c(25): warning C4047: 'initializing': 'int' differs in levels of indirection from 'void *'
-c:\users\przemek\documents\github\pjp2-przemys-aw--ukasiuk\gra\project1\project1\source.c(950): warning C4102: 'ranking': unreferenced label
   Project1.vcxproj -> C:\Users\Przemek\Documents\GitHub\PJP2-Przemys-aw--ukasiuk\Gra\Project1\Debug\Project1.exe
   Project1.vcxproj -> C:\Users\Przemek\Documents\GitHub\PJP2-Przemys-aw--ukasiuk\Gra\Project1\Debug\Project1.pdb (Partial PDB)
